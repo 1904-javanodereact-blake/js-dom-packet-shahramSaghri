@@ -76,7 +76,7 @@ function attribute() {
     }
 }
 
-attribute();
+attribute(); 
 
 // 6. Sum Event
 // NOTE: Write unobtrusive Javascript
@@ -89,6 +89,10 @@ attribute();
 // Put the sum in the <span> element.
 // If values cannot be added, put "Cannot add" in the <span> element
 
+const num = document.querySelectorAll(".nums")
+num[0].parentElement.addEventListener('change', (event) => {
+    console.log(event.target.value);
+})
 
 // 7. Skills Event
 // NOTE: Write unobtrusive Javascript
@@ -96,6 +100,17 @@ attribute();
 // 	"Are you sure CSS is one of your skills?"
 // NOTE: no alert should appear when user deselects a skill.
 
+const skills = document.getElementsByName("skills");
+//console.log(skills);
+for (let i = 0; i < skills.length; i++) {
+    //console.log(skills[i]);
+    skills[i].addEventListener('click', (event) => {
+        console.log(event.target.value);
+        if(event.target.value == 'css') {
+            alert('Are you sure CSS is one of your skills?')
+        }
+    })
+}
 
 // 8. Favorite Color Event
 // NOTE: Write unobtrusive Javascript
@@ -104,6 +119,21 @@ attribute();
 // 	"So you like green more than blue now?"
 // In this example, green is the new value and blue is the old value.
 // Make the background color (of all favoriteColor radio buttons) the newly selected favoriteColor
+const favoritColors = document.getElementsByName('favoriteColor')
+console.log(favoritColors)
+//favoritColors[0].parentElement.setAttribute("data-atrr", "color")
+let oldValue = 'color1'
+console.log(oldValue)
+
+for (let i = 0; i < favoritColors.length; i++) {
+    favoritColors[i].addEventListener('select', (event) => {
+        this
+    })
+}
+
+favoritColors[0].parentElement.addEventListener('select', (event) => {
+    console.log(event.target.value)
+})
 
 // 9. Show/Hide Event
 // NOTE: Write unobtrusive Javascript
